@@ -18,6 +18,8 @@ import java.io.*;
 import java.text.*;
 import java.util.*;
 
+import javax.swing.JOptionPane;
+
 /**
  * Es la clase que representa la tienda virtual con sus discos. <br>
  * <b>inv: </b> <br>
@@ -494,6 +496,83 @@ public class Discotienda
     }
     
 
+    /**
+     * Generar un informe de discos costosos en la discotienda.
+     * @param pGenero - Genero ingresado por el usuario.
+     * @throws FileNotFoundException - Cuando no existe una ruta especifica al escribir o leer.
+     * @throws IOException - Cuando existe el genero de un disco y cuando el disco no supera los 1000.
+     */
+    
+    
+    
+    public void generarInformeDeDiscosCostosos(String pGenero) throws FileNotFoundException, IOException
+    {
+    	//variable para genero y disco costoso
+    	int existeElGenero = 0;
+    	int existeElDiscoCostoso = 0;
+    	
+    	//recorrido para evaluar si hay discos del genero pedido y si es mayor a 1000
+    	for(int i=0; i<discos.size(); i++)
+    	{
+    		Disco miDisco = (Disco)discos.get(i);
+    		if(miDisco.darGenero().equals(pGenero))
+    			existeElGenero++;
+    		{
+    			if(miDisco.darPrecioDisco()>1000)
+    			{
+    				existeElDiscoCostoso++;
+    			} 
+    		}
+    	}
+    	
+    	if(existeElGenero==0)
+    	{
+    		throw new IOException("El genero ingresado no existe.");
+    	} else if (existeElDiscoCostoso==0)
+    	{
+    		throw new IOException("No existe discos costosos con el genero: " + pGenero + " digitado.");
+    		}
+    	
+    	File archivo = new File("./data/discosCostosos.txt");
+    	
+
+    	PrintWriter pluma = new PrintWriter(archivo);
+
+    	pluma.println("Reporte de discos con precio mayor a 1000.");
+    	pluma.println("__________________________________________");
+
+    	for(int i=0; i<discos.size(); i++)
+    	{	
+    		Disco miDisco = (Disco)discos.get(i);
+    		if(miDisco.darGenero().equals(pGenero) && miDisco.darPrecioDisco() > 1000)
+    		{
+    				pluma.println("Nombre: " + miDisco.darNombreDisco() + ", " +
+    						"Artista: " + miDisco.darArtista() + ", " +
+    						"Genero: " + miDisco.darGenero() + ".");
+    				pluma.println("________________________________");
+    		}
+    	}
+    	pluma.close();
+    }
+
+    
+    
+    /**
+     * Elimina el reporte generado previamente
+     * @throws IOException si no encuentra un reporte lanzara el error
+     */
+    public void eliminarReporteDeDiscosCostosos() throws IOException
+    {
+    	File archivo = new File("./data/discosCostosos.txt");
+    	
+    	if(archivo.exists()) {
+            archivo.delete() ;
+            }else {
+    		throw new IOException("El reporte de discos costosos no existe.");
+    		}
+    }
+    
+
 
     // -----------------------------------------------------------------
     // Puntos de Extensi�n
@@ -514,17 +593,44 @@ public class Discotienda
      */
     public String metodo2( )
     {
-    	return "respuesta 2";
+    	try {
+			String datoUsuario = JOptionPane.showInputDialog(null, "ingrese el genero del cual desea realizar el reporte");
+			if(datoUsuario != null)
+			{
+				// Llama al metodo
+				generarInformeDeDiscosCostosos(datoUsuario);
+				
+				return "Reporte Generado Satisfactoriamente. \n" ;
+			}else {
+				return "Cancelado";
+			}
+			
+		} catch (Exception e) {
+			
+			return "Error:" + "\n" + "(" + e.getMessage() + ")" + "\n" + "No se genero el reporte.";
+		}
     }
 
     /**
      * Es el punto de extensi�n 3
      * @return respuesta 3
      */
-    public String metodo3( )
+    public String metodo3()
     {
-        return "respuesta 3";
+    	try {
+			int opcion=JOptionPane.showConfirmDialog(null, "DESEA ELIMINAR DEFINITIVAMENTE EL REPORTE?", "ELIMINAR REPORTE", JOptionPane.YES_NO_OPTION);
+			if (opcion==JOptionPane.YES_OPTION) {
+				eliminarReporteDeDiscosCostosos();
+				return "El Reporte ha sido eliminado satisfactoriamente";
+			}else {
+				return"Cancelado";
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			return "Error: \n" + "(" + e.getMessage() + ")";
+		}
     }
+    	
 
     /**
      * Es el punto de extensi�n 4

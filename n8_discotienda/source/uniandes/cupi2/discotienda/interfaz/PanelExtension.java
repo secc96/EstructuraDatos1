@@ -1,13 +1,13 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * $Id: PanelExtension.java,v 1.1 2006/08/10 20:04:35 da-romer Exp $
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n8_discotienda 
- * Autor: Nicolás López - 06/12/2005 
+ * Autor: Nicolï¿½s Lï¿½pez - 06/12/2005 
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 package uniandes.cupi2.discotienda.interfaz;
@@ -28,32 +28,32 @@ public class PanelExtension extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Comando para la opción 1
+     * Comando para la opciï¿½n 1
      */
     private static final String OPCION_1 = "Opcion1";
 
     /**
-     * Comando para la opción 2
+     * Comando para la opciï¿½n 2
      */
     private static final String OPCION_2 = "Opcion2";
 
     /**
-     * Comando para la opción 3
+     * Comando para la opciï¿½n 3
      */
     private static final String OPCION_3 = "Opcion3";
 
     /**
-     * Comando para la opción 4
+     * Comando para la opciï¿½n 4
      */
     private static final String OPCION_4 = "Opcion4";
 
     /**
-     * Comando para la opción 5
+     * Comando para la opciï¿½n 5
      */
     private static final String OPCION_5 = "Opcion5";
 
     /**
-     * Comando para la opción 6
+     * Comando para la opciï¿½n 6
      */
     private static final String OPCION_6 = "Opcion6";
 
@@ -71,32 +71,32 @@ public class PanelExtension extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Es el botón para ejecutar la extensión 1
+     * Es el botï¿½n para ejecutar la extensiï¿½n 1
      */
     public JButton botonOpcion1;
 
     /**
-     * Es el botón para ejecutar la extensión 1
+     * Es el botï¿½n para ejecutar la extensiï¿½n 1
      */
     public JButton botonOpcion2;
 
     /**
-     * Es el botón para ejecutar la extensión 3
+     * Es el botï¿½n para ejecutar la extensiï¿½n 3
      */
     public JButton botonOpcion3;
 
     /**
-     * Es el botón para ejecutar la extensión 4
+     * Es el botï¿½n para ejecutar la extensiï¿½n 4
      */
     public JButton botonOpcion4;
 
     /**
-     * Es el botón para ejecutar la extensión 5
+     * Es el botï¿½n para ejecutar la extensiï¿½n 5
      */
     public JButton botonOpcion5;
 
     /**
-     * Es el botón para ejecutar la extensión 6
+     * Es el botï¿½n para ejecutar la extensiï¿½n 6
      */
     public JButton botonOpcion6;
 
@@ -111,44 +111,44 @@ public class PanelExtension extends JPanel implements ActionListener
     {
         principal = ventanaPrincipal;
 
-        botonOpcion1 = new JButton( "Opción 1" );
+        botonOpcion1 = new JButton( "Opciï¿½n 1" );
         botonOpcion1.setActionCommand( OPCION_1 );
         botonOpcion1.addActionListener( this );
         add( botonOpcion1 );
 
-        botonOpcion2 = new JButton( "Opción 2" );
+        botonOpcion2 = new JButton( "Generar Reporte" );
         botonOpcion2.setActionCommand( OPCION_2 );
         botonOpcion2.addActionListener( this );
         add( botonOpcion2 );
 
-        botonOpcion3 = new JButton( "Opción 3" );
+        botonOpcion3 = new JButton( "Elminar Reporte" );
         botonOpcion3.setActionCommand( OPCION_3 );
         botonOpcion3.addActionListener( this );
         add( botonOpcion3 );
 
-        botonOpcion4 = new JButton( "Opción 4" );
+        botonOpcion4 = new JButton( "Opciï¿½n 4" );
         botonOpcion4.setActionCommand( OPCION_4 );
         botonOpcion4.addActionListener( this );
         add( botonOpcion4 );
 
-        botonOpcion5 = new JButton( "Opción 5" );
+        botonOpcion5 = new JButton( "Opciï¿½n 5" );
         botonOpcion5.setActionCommand( OPCION_5 );
         botonOpcion5.addActionListener( this );
         add( botonOpcion5 );
 
-        botonOpcion6 = new JButton( "Opción 6" );
+        botonOpcion6 = new JButton( "Opciï¿½n 6" );
         botonOpcion6.setActionCommand( OPCION_6 );
         botonOpcion6.addActionListener( this );
         add( botonOpcion6 );
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
      * Ejecuta las acciones asociadas a los eventos
-     * @param evento es el evento del click sobre un botón
+     * @param evento es el evento del click sobre un botï¿½n
      */
     public void actionPerformed( ActionEvent evento )
     {
