@@ -607,7 +607,7 @@ public class Discotienda
 			
 		} catch (Exception e) {
 			
-			return "Error:" + "\n" + "(" + e.getMessage() + ")" + "\n" + "No se genero el reporte.";
+			return "ERROR \n ( " + e.getMessage() + " ) \n" + "reporte no generado";
 		}
     }
 
